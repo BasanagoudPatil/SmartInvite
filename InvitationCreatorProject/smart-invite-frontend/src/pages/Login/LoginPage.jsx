@@ -17,7 +17,7 @@ export default function LoginPage() {
 
     if (result && result.userId) {
       localStorage.setItem("user", JSON.stringify(result));
-      setSuccess(true);  // Show animation
+      setSuccess(true);
     } else {
       alert("Invalid email or password");
     }
@@ -28,7 +28,7 @@ export default function LoginPage() {
       {success && (
         <SuccessAnimation 
           message="Login Successful!"
-          redirectTo="/home"
+          redirectTo="/dashboard"   // ✔ FIXED
           navigate={navigate}
         />
       )}
