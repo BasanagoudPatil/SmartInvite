@@ -6,6 +6,8 @@ import Dashboard from "./pages/Dashboard/Dashboard";   // <-- NEW
 import ProtectedRoute from "./ProtectedRoute";         // <-- NEW
 import TemplatesPage from "./pages/Templates/TemplatesPage";
 import NewEventPage from "./pages/NewEvent/NewEventPage";
+import TemplateAdminPage from "./pages/TemplateAdmin/TemplateAdminPage";
+
 
 
 
@@ -45,6 +47,10 @@ function App() {
     </ProtectedRoute>
   }
 />
+<Route path="/Templates" element={<TemplatesPage />} />
+<Route path="/TemplatesAdmin" element={<TemplateAdminPage />} />
+
+
 
 
       </Routes>

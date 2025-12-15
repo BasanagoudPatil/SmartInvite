@@ -1,40 +1,108 @@
+/* =========================
+   LOGIN PAGE – PREMIUM UI
+   ========================= */
+
 .auth-container {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #f5f3ff, #ede9fe);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: #f4f4f4;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.auth-box {
-  background: white;
-  padding: 30px;
-  width: 350px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  border-radius: 10px;
-}
-
-.auth-box h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.auth-box input {
+/* Card */
+.auth-form {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
+  max-width: 420px;
+  background: #ffffff;
+  padding: 40px 35px;
+  border-radius: 18px;
+  box-shadow: 0 20px 50px rgba(124, 58, 237, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: fadeIn 0.6s ease;
 }
 
-.auth-box button {
-  width: 100%;
-  padding: 10px;
-  background: #3b82f6;
-  color: white;
-  border: none;
-  border-radius: 6px;
-}
-
-.auth-box p {
+/* Title */
+.auth-form h2 {
   text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 10px;
+}
+
+/* Inputs */
+.auth-form input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 15px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.auth-form input::placeholder {
+  color: #9ca3af;
+}
+
+.auth-form input:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+}
+
+/* Button */
+.auth-form button {
   margin-top: 10px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(135deg, #7c3aed, #9333ea);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4);
+}
+
+.auth-form button:active {
+  transform: translateY(0);
+}
+
+/* Bottom text */
+.auth-form p {
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.auth-form a {
+  color: #7c3aed;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-form a:hover {
+  text-decoration: underline;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

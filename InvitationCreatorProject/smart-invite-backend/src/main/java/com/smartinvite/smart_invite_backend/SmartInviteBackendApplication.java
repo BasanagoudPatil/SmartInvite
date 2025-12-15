@@ -12,3 +12,4 @@ public class SmartInviteBackendApplication {
 	}
 
 }
+// mvn spring-boot:run

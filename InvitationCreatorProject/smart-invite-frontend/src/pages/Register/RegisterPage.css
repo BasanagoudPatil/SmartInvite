@@ -1,45 +1,96 @@
+/* BACKGROUND */
 .auth-container {
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: #f4f4f4;
+  background: linear-gradient(120deg, #eef1ff, #f9faff);
 }
 
-.auth-box {
-  background: white;
-  padding: 30px;
-  width: 350px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  border-radius: 10px;
+/* CARD */
+.auth-card {
+  width: 900px;
+  height: 460px;
+  background: #fff;
+  border-radius: 24px;
+  display: flex;
+  box-shadow: 0 30px 70px rgba(123, 47, 247, 0.25);
+  overflow: hidden;
 }
 
-.auth-box h2 {
-  text-align: center;
-  margin-bottom: 20px;
+/* FORM */
+.auth-form {
+  width: 50%;
+  padding: 55px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.auth-box input {
+.auth-form h2 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 22px;
+}
+
+/* INPUTS */
+.auth-form input {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 15px;
 }
 
-.auth-box button {
-  width: 100%;
-  padding: 10px;
-  background: #3b82f6;
-  color: white;
+.auth-form input:focus {
+  outline: none;
+  border-color: #7b2ff7;
+  box-shadow: 0 0 0 3px rgba(123, 47, 247, 0.15);
+}
+
+/* BUTTON */
+.auth-form button {
+  margin-top: 10px;
+  padding: 14px;
   border: none;
-  border-radius: 6px;
+  border-radius: 14px;
+  background: linear-gradient(90deg, #7b2ff7, #b867ff);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
 }
 
-.auth-box button:hover {
-  background: #2563eb;
+.auth-form button:hover {
+  box-shadow: 0 12px 25px rgba(123, 47, 247, 0.35);
 }
 
-.auth-box p {
-  text-align: center;
-  margin-top: 10px;
+/* SWITCH */
+.switch {
+  margin-top: 18px;
+  font-size: 14px;
+}
+
+.switch a {
+  color: #7b2ff7;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* IMAGE */
+.auth-image {
+  width: 50%;
+  background-size: cover;
+  background-position: center;
+}
+
+.register-image {
+  background-image: url("https://cdn.dribbble.com/userupload/45137401/file/289be55c4a010cb83ebaa0b4edb64528.jpg?resize=400x0"); /* replace */
 }

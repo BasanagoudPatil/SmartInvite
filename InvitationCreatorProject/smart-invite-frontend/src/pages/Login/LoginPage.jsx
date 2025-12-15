@@ -26,37 +26,48 @@ export default function LoginPage() {
   return (
     <>
       {success && (
-        <SuccessAnimation 
+        <SuccessAnimation
           message="Login Successful!"
-          redirectTo="/dashboard"   // ✔ FIXED
+          redirectTo="/dashboard"
           navigate={navigate}
         />
       )}
 
       <div className="auth-container">
-        <form onSubmit={handleLogin} className="auth-form">
-          <h2>Login</h2>
+        <div className="auth-card">
 
-          <input 
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+          {/* LEFT IMAGE */}
+          <div className="auth-image login-image"></div>
 
-          <input 
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+          {/* RIGHT FORM */}
+          <form onSubmit={handleLogin} className="auth-form">
+            <h2>Welcome Back</h2>
+            <p className="subtitle">Login to manage your invitations</p>
 
-          <button type="submit">Login</button>
+            <input
+              type="email"
+              placeholder="Email Address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
 
-          <p>Don't have an account? <a href="/register">Register</a></p>
-        </form>
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+
+            <button type="submit">Login</button>
+
+            <p className="switch">
+              Don’t have an account? <a href="/register">Register</a>
+            </p>
+          </form>
+
+        </div>
       </div>
     </>
   );
