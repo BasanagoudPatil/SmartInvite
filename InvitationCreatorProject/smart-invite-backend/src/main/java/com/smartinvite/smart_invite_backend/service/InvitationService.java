@@ -1,7 +1,6 @@
 package com.smartinvite.smart_invite_backend.service;
 
-
-import com.smartinvite.smart_invite_backend.dto.InvitationDTO;
+import com.smartinvite.smart_invite_backend.dto.InvitationCreateRequest;
 import com.smartinvite.smart_invite_backend.entity.Invitation;
 import com.smartinvite.smart_invite_backend.entity.Template;
 import com.smartinvite.smart_invite_backend.entity.User;
@@ -18,36 +17,40 @@ import java.util.UUID;
 @Service
 public class InvitationService {
 
-    @Autowired
-    private InvitationRepository invitationRepo;
+    private final InvitationRepository invitationRepository;
+    private final TemplateRepository templateRepository;
+    private final UserRepository userRepository;
 
-    @Autowired
-    private TemplateRepository templateRepo;
+    public InvitationService(
+            InvitationRepository invitationRepository,
+            TemplateRepository templateRepository,
+            UserRepository userRepository) {
+        this.invitationRepository = invitationRepository;
+        this.templateRepository = templateRepository;
+        this.userRepository = userRepository;
+    }
 
-    @Autowired
-    private UserRepository userRepo;
+    public Invitation createInvitation(InvitationCreateRequest request) {
 
-    public InvitationDTO createInvitation(UUID userId, UUID templateId, InvitationDTO dto) {
+        Template template = templateRepository.findById(request.getTemplateId())
+                .orElseThrow(() -> new RuntimeException("Template not found"));
 
-        User user = userRepo.findById(userId).orElseThrow();
-        Template template = templateRepo.findById(templateId).orElseThrow();
+        User user = userRepository.findById(request.getUserId())
+                .orElseThrow(() -> new RuntimeException("User not found"));
 
-        Invitation inv = Invitation.builder()
-                .user(user)
+        Invitation invitation = Invitation.builder()
                 .template(template)
-                .eventType(EventType.valueOf(dto.getEventType().toUpperCase()))
-                .eventTitle(dto.getEventTitle())
-                .eventDate(dto.getEventDate())
-                .eventTime(dto.getEventTime())
-                .venueName(dto.getVenueName())
-                .venueAddress(dto.getVenueAddress())
-                .eventDescription(dto.getEventDescription())
+                .user(user)
+                .eventType(EventType.valueOf(request.getEventType()))
+                .eventTitle(request.getEventTitle())
+                .eventDate(request.getEventDate())
+                .eventTime(request.getEventTime())
+                .venueName(request.getVenueName())
+                .venueAddress(request.getVenueAddress())
+                .eventDescription(request.getEventDescription())
                 .status(InvitationStatus.DRAFT)
                 .build();
 
-        invitationRepo.save(inv);
-
-        dto.setInvitationId(inv.getInvitationId());
-        return dto;
+        return invitationRepository.save(invitation);
     }
 }
